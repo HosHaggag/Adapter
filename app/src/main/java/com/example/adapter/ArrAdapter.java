@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ArrAdapter extends ArrayAdapter<Fruets> {
+    @SuppressLint("ResourceAsColor")
     @NonNull
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {
@@ -27,10 +28,12 @@ public class ArrAdapter extends ArrayAdapter<Fruets> {
         }
         TextView textView = v.findViewById(R.id.textView);
         textView.setText(getItem(position).getApple());
-        return super.getView(position, convertView, parent);
+        textView.setBackgroundColor(R.color.colorPrimary);
+
+        return v;
     }
 
-    public ArrAdapter(Activity context, ArrayList<Fruets>arr) {
+    public ArrAdapter(Activity context, ArrayList<Fruets> arr, int colorPrimaryDark) {
         super(context, 0, arr);
         ;
     }
